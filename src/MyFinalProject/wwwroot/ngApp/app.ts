@@ -13,6 +13,42 @@ namespace MyFinalProject {
                 controller: MyFinalProject.Controllers.HomeController,
                 controllerAs: 'controller'
             })
+            .state('applicationUsers', {
+                url: '/applicationUsers',
+                templateUrl: '/ngApp/views/applicationUsers.html',
+                controller: MyFinalProject.Controllers.ApplicationUsersController,
+                controllerAs: 'controller'
+            })
+            .state('applicationUser', {
+                url: '/applicationUsers/:id',
+                templateUrl: '/ngApp/views/applicationUser.html',
+                controller: MyFinalProject.Controllers.ApplicationUserController,
+                controllerAs: 'controller'
+            })
+            .state('categories', {
+                url: '/categories',
+                templateUrl: '/ngApp/views/categories.html',
+                controller: MyFinalProject.Controllers.CategoriesController,
+                controllerAs: 'controller'
+            })
+            .state('category', {
+                url: '/categories/:id',
+                templateUrl: '/ngApp/views/category.html',
+                controller: MyFinalProject.Controllers.CategoryController,
+                controllerAs: 'controller'
+            })
+            .state('subCategories', {
+                url: '/subCategories',
+                templateUrl: '/ngApp/views/subCategories.html',
+                controller: MyFinalProject.Controllers.SubCategoriesController,
+                controllerAs: 'controller'
+            })
+            .state('subCategory', {
+                url: '/subCategories/:id',
+                templateUrl: '/ngApp/views/subCategory.html',
+                controller: MyFinalProject.Controllers.SubCategoryController,
+                controllerAs: 'controller'
+            })
             .state('secret', {
                 url: '/secret',
                 templateUrl: '/ngApp/views/secret.html',

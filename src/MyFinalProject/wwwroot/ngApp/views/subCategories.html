@@ -1,0 +1,16 @@
+﻿{{controller.message}}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Sub Category Name</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="sc in controller.subCategories">
+            <td>
+                <a ui-sref="subCategory({id: sc.id})">{{sc.subCategoryName}}</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

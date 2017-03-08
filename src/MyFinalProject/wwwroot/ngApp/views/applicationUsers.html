@@ -1,0 +1,16 @@
+{{controller.message}}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>First Name</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="au in controller.appUsers">
+            <td>
+                <a ui-sref="applicationUser({id: au.id})">{{au.firstName}}</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -60,9 +60,11 @@ namespace MyFinalProject
             // Our Services
             services.AddScoped<IGenericRepository, GenericRepository>();
             services.AddScoped<IApplicationUsersService, ApplicationUsersService>();
-            
-                        // add security policies
-                        services.AddAuthorization(options =>
+            services.AddScoped<ICategoriesService, CategoriesService>();
+            services.AddScoped<ISubCategoriesService, SubCategoriesService>();
+
+            // add security policies
+            services.AddAuthorization(options =>
                         {
                             options.AddPolicy("AdminOnly", policy => policy.RequireClaim("IsAdmin"));
                         });

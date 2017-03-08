@@ -9,15 +9,18 @@
     <div class="container">
         <h1>MyFinalProject</h1>
         <div>
-          <a href="/">Home</a> /
-           <a href="/about">About</a>
+            <a href="/">Home</a> /
+            <a href="/about">About</a> /
+            <a href="/applicationUsers">List of Users</a> /
+            <a href="/categories">List of Categories</a> /
+            <a href="/subCategories">List of Sub Categories</a> /
 
-           / <a href="/secret">Secret</a> /
-           <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
-           <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
-           <div ng-show="account.isLoggedIn()">
-               [{{account.getUserName()}}]
-           </div> 
+            <a href="/secret">Secret</a> /
+            <a href="/login" ng-show="!account.isLoggedIn()">Login</a>
+            <a href="#" ng-click="account.logout()" ng-show="account.isLoggedIn()">Logout</a>
+            <div ng-show="account.isLoggedIn()">
+                [{{account.getUserName()}}]
+            </div> 
         </div>
         <hr />
 

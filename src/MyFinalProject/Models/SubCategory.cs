@@ -10,6 +10,8 @@ namespace MyFinalProject.Models
         public int Id { get; set; }
         public string SubCategoryName { get; set; }
 
+        public Category Category { get; set; }
+
         public ICollection<UserSubCategory> UserSubCategories { get; set; }
     }
 }

@@ -1,0 +1,54 @@
+﻿{{controller.message}}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{controller.appUser.firstName}}</td>
+            <td>{{controller.appUser.lastName}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>List of Category skills (Programming, music, data science, etc)</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <ul>
+                    <li ng-repeat="cat in controller.appUser.categories">
+                        <a ui-sref="category({id: cat.id})">{{cat.categoryName}}</a>     
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>List of Sub-Category skills (.Net, C#, Java, etc)</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <ul>
+                    <li ng-repeat="subCat in controller.appUser.subCategories">
+                        <a ui-sref="subCategory({id: subCat.id})">{{subCat.subCategoryName}}</a> 
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>

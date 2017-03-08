@@ -6,8 +6,7 @@ namespace MyFinalProject.Interfaces
 {
     public interface IApplicationUsersService
     {
-        void EditUser(ApplicationUser user);
         UserWithCategoryAndSubCategory GetAppUser(string id);
-        List<UserWithCategoryAndSubCategory> GetAppUsers();
+        List<ApplicationUser> GetAppUsers();
     }
 }

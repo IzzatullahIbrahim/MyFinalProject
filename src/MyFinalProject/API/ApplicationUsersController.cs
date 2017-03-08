@@ -22,7 +22,7 @@ namespace MyFinalProject.API
         }
 
         [HttpGet]
-        public List<UserWithCategoryAndSubCategory> Get()
+        public List<ApplicationUser> Get()
         {
             return _auService.GetAppUsers();
         }

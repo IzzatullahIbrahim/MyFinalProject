@@ -16,14 +16,84 @@ namespace MyFinalProject.Controllers {
     }
 
     export class ApplicationUserController {
-        public message = 'Hello from the user page';
-        public appUser;
+        public message = 'Hello from the user categories page';
+        public userCategory;
+        public userSubCategory;
 
         constructor(private $http: ng.IHttpService, private $stateParams: ng.ui.IStateParamsService) {
             let userId = this.$stateParams['id'];
 
-            this.$http.get('/api/applicationUsers/' + userId).then((response) => {
-                this.appUser = response.data;
+            this.$http.get('/api/userCategories/' + userId).then((response) => {
+                this.userCategory = response.data;
+            })
+
+            this.$http.get('/api/userSubCategories/' + userId).then((response) => {
+                this.userSubCategory = response.data;
+            })
+        }
+    }
+
+    export class AddCategoryToUserController {
+        public message = 'Hello from add Category to user page';
+        public applicationUser;
+        public categories;
+
+        constructor(private $http: ng.IHttpService, private $state: ng.ui.IStateService, private $stateParams: ng.ui.IStateParamsService) {
+            let auId = this.$stateParams['id'];
+
+            this.$http.get('/api/userCategories/' + auId).then((response) => {
+                this.applicationUser = response.data;
+            })
+
+            this.$http.get('/api/categories').then((response) => {
+                this.categories = response.data;
+            })
+        }
+
+        public addCategoryToUser() {
+            this.$http.post('/api/userCategories', this.applicationUser).then((response) => {
+                this.$state.go('home');
+            })
+        }
+    }
+
+    export class AddCategoryAndSubCategoryToUserController {
+        public message = 'Hello from add Category and sub category to user page';
+        public applicationUser;
+        public categories;
+        public subCategories;
+        public UserCategory;
+        public UserSubCategory;
+
+        constructor(private $http: ng.IHttpService, private $state: ng.ui.IStateService, private $stateParams: ng.ui.IStateParamsService) {
+            let auId = this.$stateParams['id'];
+
+            this.$http.get('/api/userCategories/' + auId).then((response) => {
+                this.UserCategory = response.data;
+            })
+
+            this.$http.get('/api/userSubCategories/' + auId).then((response) => {
+                this.UserSubCategory = response.data;
+            })
+
+            this.$http.get('/api/categories').then((response) => {
+                this.categories = response.data;
+            })
+
+            this.$http.get('/api/subCategories').then((response) => {
+                this.subCategories = response.data;
+            })
+        }
+
+        public addCategoryToUser() {
+            this.$http.post('/api/userCategories', this.UserCategory).then((response) => {
+                this.$state.go('home');
+            })
+        }
+
+        public addSubCategoryToUser() {
+            this.$http.post('/api/userSubCategories', this.UserSubCategory).then((response) => {
+                this.$state.go('home');
             })
         }
     }

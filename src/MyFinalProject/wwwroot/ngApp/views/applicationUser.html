@@ -9,8 +9,8 @@
     </thead>
     <tbody>
         <tr>
-            <td>{{controller.appUser.firstName}}</td>
-            <td>{{controller.appUser.lastName}}</td>
+            <td>{{controller.userCategory.firstName}}</td>
+            <td>{{controller.userCategory.lastName}}</td>
         </tr>
     </tbody>
 </table>
@@ -25,7 +25,7 @@
         <tr>
             <td>
                 <ul>
-                    <li ng-repeat="cat in controller.appUser.categories">
+                    <li ng-repeat="cat in controller.userCategory.categories">
                         <a ui-sref="category({id: cat.id})">{{cat.categoryName}}</a>     
                     </li>
                 </ul>
@@ -44,7 +44,7 @@
         <tr>
             <td>
                 <ul>
-                    <li ng-repeat="subCat in controller.appUser.subCategories">
+                    <li ng-repeat="subCat in controller.userSubCategory.subCategories">
                         <a ui-sref="subCategory({id: subCat.id})">{{subCat.subCategoryName}}</a> 
                     </li>
                 </ul>

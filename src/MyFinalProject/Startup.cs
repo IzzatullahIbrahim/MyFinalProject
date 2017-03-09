@@ -60,6 +60,8 @@ namespace MyFinalProject
             // Our Services
             services.AddScoped<IGenericRepository, GenericRepository>();
             services.AddScoped<IApplicationUsersService, ApplicationUsersService>();
+            services.AddScoped<IUserCategoriesService, UserCategoriesService>();
+            services.AddScoped<IUserSubCategoriesService, UserSubCategoriesService>();
             services.AddScoped<ICategoriesService, CategoriesService>();
             services.AddScoped<ISubCategoriesService, SubCategoriesService>();
             services.AddScoped<ICatSubCategoriesService, CatSubCategoriesService>();

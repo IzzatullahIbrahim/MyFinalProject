@@ -16,6 +16,25 @@
 <table class="table table-bordered">
     <thead>
         <tr>
+            <td>List of SubCategory inside this Category</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <ul>
+                    <li ng-repeat="csc in controller.catSubCategory.subCategories">
+                        <a ui-sref="subCategory({id: csc.id})">{{csc.subCategoryName}}</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
             <td>List of People who teach this (Programming/Music/Porn)</td>
             <td>LastName</td>
         </tr>

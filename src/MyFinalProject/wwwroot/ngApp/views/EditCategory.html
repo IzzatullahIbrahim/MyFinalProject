@@ -1,0 +1,20 @@
+﻿{{controller.message}}
+<form ng-submit="controller.addUsers()">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Category Name</td>
+                <td>List of User</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{controller.category.categoryName}}</td>
+                <td>
+                    <select ng-model="controller.category.applicationUsers" ng-options="user as user.firstName + ' ' + user.lastName for user in controller.applicationUsers" multiple></select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button>Add Users</button>
+</form>

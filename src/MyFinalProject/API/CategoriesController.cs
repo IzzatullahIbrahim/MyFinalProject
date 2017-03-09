@@ -32,5 +32,24 @@ namespace MyFinalProject.API
         {
             return _catService.GetCategory(id);
         }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] CategoryWithUsers category)
+        {
+            if (category == null)
+            {
+                return BadRequest();
+            }
+            else if ( category.Id == 0)
+            {
+                _catService.AddCategory(category);
+                return Ok();
+            }
+            else
+            {
+                _catService.EditCategory(category);
+                return Ok();
+            }
+        }
     }
 }

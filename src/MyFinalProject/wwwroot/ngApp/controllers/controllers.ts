@@ -42,12 +42,56 @@ namespace MyFinalProject.Controllers {
     export class CategoryController {
         public message = 'Hello from category page';
         public category;
+        public catSubCategory;
 
         constructor(private $http: ng.IHttpService, private $stateParams: ng.ui.IStateParamsService) {
             let cId = this.$stateParams['id'];
 
+            this.$http.get('/api/catSubCategories/' + cId).then((response) => {
+                this.catSubCategory = response.data;
+            })
+
             this.$http.get('/api/categories/' + cId).then((response) => {
                 this.category = response.data;
+            })
+        }
+    }
+
+    export class AddCategoryController {
+        public message = 'Hello from add category page';
+        public category;
+
+        constructor(private $http: ng.IHttpService, private $state: ng.ui.IStateService) {
+
+        }
+
+        public addCategory() {
+            this.$http.post('/api/categories', this.category).then((response) => {
+                this.$state.go('home');
+            })
+        }
+    }
+
+    export class EditCategoryController {
+        public message = 'Hello from edit category page';
+        public category;
+        public applicationUsers;
+
+        constructor(private $http: ng.IHttpService, private $state: ng.ui.IStateService, private $stateParams: ng.ui.IStateParamsService) {
+            let cId = this.$stateParams['id'];
+
+            this.$http.get('/api/categories/' + cId).then((response) => {
+                this.category = response.data;
+            })
+
+            this.$http.get('/api/applicationUsers').then((response) => {
+                this.applicationUsers = response.data;
+            })
+        }
+
+        public addUsers() {
+            this.$http.post('/api/categories', this.category).then((response) => {
+                this.$state.go('home');
             })
         }
     }

@@ -11,10 +11,12 @@ namespace MyFinalProject.Services
     public class SubCategoriesService : ISubCategoriesService
     {
         private IGenericRepository _repo;
+        private ICategoriesService _catService;
 
-        public SubCategoriesService(IGenericRepository repo)
+        public SubCategoriesService(IGenericRepository repo, ICategoriesService catService)
         {
             _repo = repo;
+            _catService = catService;
         }
 
         public List<SubCategory> GetSubCategories()
@@ -28,7 +30,15 @@ namespace MyFinalProject.Services
             return subCategories;
         }
 
-        public SubCategoryWithUsers GetSubCategory(int id)
+        public SubCategory GetSubCategory(int id)
+        {
+            SubCategory subCategory = (from sc in _repo.Query<SubCategory>()
+                                       where sc.Id == id
+                                       select sc).FirstOrDefault();
+            return subCategory;
+        }
+
+        public SubCategoryWithUsers GetSubCategoryWithUsers(int id)
         {
             SubCategoryWithUsers subCategory = (from sc in _repo.Query<SubCategory>()
                                                 where sc.Id == id
@@ -41,6 +51,28 @@ namespace MyFinalProject.Services
                                                                         select au.ApplicationUser).ToList()
                                                 }).FirstOrDefault();
             return subCategory;
+        }
+
+        public void AddSubCategory(SubCategory subCategory)
+        {
+            Category category = _catService.GetCategory(subCategory.Category.Id);
+            subCategory.Category = category;
+
+            _repo.Add(subCategory);
+        }
+
+        public void EditSubCategory(SubCategory subCategory)
+        {
+            Category category = _catService.GetCategory(subCategory.Category.Id);
+            subCategory.Category = category;
+
+            _repo.Update(subCategory);
+        }
+
+        public void DeleteSubCategory(int id)
+        {
+            SubCategory subCategory = GetSubCategory(id);
+            _repo.Delete(subCategory);
         }
     }
 }

@@ -30,7 +30,34 @@ namespace MyFinalProject.API
         [HttpGet("{id}")]
         public SubCategoryWithUsers Get(int id)
         {
-            return _subCatService.GetSubCategory(id);
+            return _subCatService.GetSubCategoryWithUsers(id);
         }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] SubCategory subCategory)
+        {
+            if (subCategory == null)
+            {
+                return BadRequest();
+            }
+            else if(subCategory.Id == 0)
+            {
+                _subCatService.AddSubCategory(subCategory);
+                return Ok();
+            }
+            else
+            {
+                _subCatService.EditSubCategory(subCategory);
+                return Ok();
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _subCatService.DeleteSubCategory(id);
+            return Ok();
+        }
+
     }
 }

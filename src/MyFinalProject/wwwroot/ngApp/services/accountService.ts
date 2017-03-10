@@ -7,6 +7,9 @@ namespace MyFinalProject.Services {
             // store user name
             this.$window.sessionStorage.setItem('userName', userInfo.userName);
 
+            // store id
+            this.$window.sessionStorage.setItem('id', userInfo.id);
+
             // store claims
             this.$window.sessionStorage.setItem('claims', JSON.stringify(userInfo.claims));
         }
@@ -15,6 +18,9 @@ namespace MyFinalProject.Services {
             return this.$window.sessionStorage.getItem('userName');
         }
 
+        public getId() {
+            return this.$window.sessionStorage.getItem('id');
+        }
 
         public getClaim(type) {
             var allClaims = JSON.parse(this.$window.sessionStorage.getItem('claims'));

@@ -31,7 +31,15 @@ namespace MyFinalProject.Services
             return categories;
         }
 
-        public CategoryWithUsers GetCategory(int id)
+        public Category GetCategory(int id)
+        {
+            Category category = (from c in _repo.Query<Category>()
+                                 where c.Id == id
+                                 select c).FirstOrDefault();
+            return category;
+        }
+
+        public CategoryWithUsers GetCategoryWithUsers(int id)
         {
             CategoryWithUsers category = (from c in _repo.Query<Category>()
                                           where c.Id == id
@@ -46,18 +54,21 @@ namespace MyFinalProject.Services
             return category;
         }
 
-        public void AddCategory(CategoryWithUsers category)
+        public void AddCategory(Category category)
         {
-            _repo.Add(new Category { CategoryName = category.CategoryName });
+            _repo.Add(category);
         }
 
-        public void EditCategory(CategoryWithUsers category)
+        public void EditCategory(Category category)
         {
-            foreach(ApplicationUser applicationUser in category.ApplicationUsers)
-            {
-                _db.UserCategories.Add(new UserCategory { CategoryId = category.Id, ApplicationUserId = applicationUser.Id });
-            }
-            _db.SaveChanges();
+            _repo.Update(category);
+        }
+
+        public void DeleteCategory(int id)
+        {
+            Category category = GetCategory(id);
+
+            _repo.Delete(category);
         }
     }
 }

@@ -6,9 +6,11 @@ namespace MyFinalProject.Interfaces
 {
     public interface ICategoriesService
     {
-        void AddCategory(CategoryWithUsers category);
-        void EditCategory(CategoryWithUsers category);
+        void AddCategory(Category category);
+        void DeleteCategory(int id);
+        void EditCategory(Category category);
         List<Category> GetCategories();
-        CategoryWithUsers GetCategory(int id);
+        Category GetCategory(int id);
+        CategoryWithUsers GetCategoryWithUsers(int id);
     }
 }

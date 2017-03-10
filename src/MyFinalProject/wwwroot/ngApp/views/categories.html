@@ -12,7 +12,10 @@
                 <a ui-sref="category({id: c.id})">{{c.categoryName}}</a>
             </td>
             <td>
-                <a ui-sref="editCategory({id: c.id })">Add User</a>
+                <a ui-sref="editCategory({id: c.id })">Edit Category</a>
+            </td>
+            <td>
+                <button ng-click="controller.deleteCategory(c.id)">Delete Category</button>
             </td>
         </tr>
     </tbody>

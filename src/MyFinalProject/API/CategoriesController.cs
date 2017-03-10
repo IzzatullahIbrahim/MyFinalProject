@@ -30,11 +30,11 @@ namespace MyFinalProject.API
         [HttpGet("{id}")]
         public CategoryWithUsers Get(int id)
         {
-            return _catService.GetCategory(id);
+            return _catService.GetCategoryWithUsers(id);
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] CategoryWithUsers category)
+        public IActionResult Post([FromBody] Category category)
         {
             if (category == null)
             {
@@ -50,6 +50,13 @@ namespace MyFinalProject.API
                 _catService.EditCategory(category);
                 return Ok();
             }
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _catService.DeleteCategory(id);
+            return Ok();
         }
     }
 }

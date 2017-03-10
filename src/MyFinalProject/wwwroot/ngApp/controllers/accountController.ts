@@ -7,6 +7,10 @@ namespace MyFinalProject.Controllers {
             return this.accountService.getUserName();
         }
 
+        public getId() {
+            return this.accountService.getId();
+        }
+
         public getClaim(type) {
             return this.accountService.getClaim(type);
         }

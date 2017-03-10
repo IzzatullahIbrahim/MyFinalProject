@@ -11,6 +11,12 @@
             <td>
                 <a ui-sref="subCategory({id: sc.id})">{{sc.subCategoryName}}</a>
             </td>
+            <td>
+                <a ui-sref="editSubCategory({id: sc.id})">Edit SubCategory</a>
+            </td>
+            <td>
+                <button ng-click="controller.deleteSubCategory(sc.id)">Delete SubCategory</button>
+            </td>
         </tr>
     </tbody>
 </table>

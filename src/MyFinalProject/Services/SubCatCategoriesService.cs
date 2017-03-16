@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyFinalProject.Services
 {
-    public class SubCatCategoriesService
+    public class SubCatCategoriesService : ISubCatCategoriesService
     {
         private IGenericRepository _repo;
 

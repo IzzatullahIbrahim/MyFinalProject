@@ -65,6 +65,7 @@ namespace MyFinalProject
             services.AddScoped<ICategoriesService, CategoriesService>();
             services.AddScoped<ISubCategoriesService, SubCategoriesService>();
             services.AddScoped<ICatSubCategoriesService, CatSubCategoriesService>();
+            services.AddScoped<ISubCatCategoriesService, SubCatCategoriesService>();
 
             // add security policies
             services.AddAuthorization(options =>

@@ -1,6 +1,6 @@
 ﻿using MyFinalProject.Models;
 
-namespace MyFinalProject.Services
+namespace MyFinalProject.Interfaces
 {
     public interface ISubCatCategoriesService
     {

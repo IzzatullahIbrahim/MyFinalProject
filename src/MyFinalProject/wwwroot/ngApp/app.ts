@@ -49,16 +49,16 @@ namespace MyFinalProject {
                 controller: MyFinalProject.Controllers.EditCategoryController,
                 controllerAs: 'controller'
             })
-            .state('addCategoryToUser', {
-                url: '/addCategoryToUser/:id',
-                templateUrl: '/ngApp/views/addCategoryToUser.html',
-                controller: MyFinalProject.Controllers.AddCategoryToUserController,
-                controllerAs: 'controller'
-            })
             .state('addCategoryAndSubCategoryToUser', {
                 url: '/addCategoryAndSubCategoryToUser/:id',
                 templateUrl: '/ngApp/views/addCategoryAndSubCategoryToUser.html',
                 controller: MyFinalProject.Controllers.AddCategoryAndSubCategoryToUserController,
+                controllerAs: 'controller'
+            })
+            .state('editCategoryAndSubCategoryToUser', {
+                url: '/editCategoryAndSubCategoryToUser/:id',
+                templateUrl: '/ngApp/views/editCategoryAndSubCategoryToUser.html',
+                controller: MyFinalProject.Controllers.EditCategoryAndSubCategoryToUserController,
                 controllerAs: 'controller'
             })
             .state('subCategories', {

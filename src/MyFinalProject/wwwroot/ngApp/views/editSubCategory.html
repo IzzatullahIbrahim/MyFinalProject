@@ -10,7 +10,7 @@
     <div>
         <label>Pick A Category</label>
         <select ng-model="controller.subCategory.category.id" ng-options="cat.id as cat.categoryName for cat in controller.categories">
-            <option value="">{{controller.subCategory.category.categoryName}}</option>
+            <option value="" hidden>{{controller.subCategory.category.categoryName}}</option>
         </select>
     </div>
 

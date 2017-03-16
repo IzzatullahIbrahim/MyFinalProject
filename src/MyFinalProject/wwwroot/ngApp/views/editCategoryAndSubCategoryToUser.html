@@ -1,0 +1,27 @@
+﻿{{controller.message}}
+
+<form ng-submit="controller.addCategoryToUser(); controller.addSubCategoryToUser();">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>List of Categories</td>
+                <td>List of Sub Categories</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{controller.UserCategory.firstName}}</td>
+                <td>{{controller.UserCategory.lastName}}</td>
+                <td>
+                    <select ng-model="controller.UserCategory.categories" ng-options="cat as cat.categoryName for cat in controller.categories" multiple></select>
+                </td>
+                <td>
+                    <select ng-model="controller.UserSubCategory.subCategories" ng-options="subCat as subCat.subCategoryName for subCat in controller.subCategories" multiple></select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button>Edit Category And Sub Category</button>
+</form>
